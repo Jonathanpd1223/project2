@@ -1,8 +1,9 @@
 function App() {
   const winningCombos = [ [0, 1, 2],[3, 4, 5],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8],[0, 4, 8],[2, 4, 6],]
   const [board, setBoard] = React.useState(["","","","","","","","",""]);
+  const [turn, setTurn] = React.useState('X'); // Use state for the current turn
+
   let gameOver = false;
-  let turn = 'X';
   let win;
 
   function handleTurn(event) {
@@ -12,7 +13,7 @@ function App() {
       let newBoard = [...board]
       newBoard[idx] = turn
       setBoard(newBoard)
-      turn = turn === 'X' ? 'O' : 'X'
+      setTurn(turn === 'X' ? 'O' : 'X');
       //  win = getWinner()
       // render()
     }
